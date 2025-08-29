@@ -313,8 +313,20 @@ export class App<TPlugin extends IPlugin = IPlugin> {
     }
 
     // default event handlers
-    this.on('signin.token-exchange', (...args) => this.onTokenExchange(...args));
-    this.on('signin.verify-state', (...args) => this.onVerifyState(...args));
+    this.router.register({
+      name: 'signin.token-exchange',
+      type: 'system',
+      select: activity => activity.type === 'invoke' && activity.name === 'signin/tokenExchange',
+      callback: this.onTokenExchange,
+    });
+
+    this.router.register({
+      name: 'signin.verify-state',
+      type: 'system',
+      select: activity => activity.type === 'invoke' && activity.name === 'signin/verifyState',
+      callback: this.onVerifyState,
+    });
+
     this.event('error', ({ error }) => {
       this.log.error(error.message);
 
