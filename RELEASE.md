@@ -21,8 +21,8 @@ npx changeset add
 npx changeset version
 ```
 
-1. Run `npm i` again - `package-lock.json` updates
 1. Update root `package.json` manually
+1. Run `npm i` again - `package-lock.json` updates
 1. Run `npm run build` to ensure everything is built correctly
 
 ## Publish Changeset
@@ -47,7 +47,7 @@ git push --tags
 
 ## Commit and Push Changes
 
-1. Create a new branch for the changes (`git checkout -b release/preview<version>`)
+1. Create a new branch for the changes (`git checkout -b release/<version>`)
 1. Commit all changes (`git add . && git commit -m "Release <version>"`)
-1. Push the branch (`git push origin release/preview<version>`)
+1. Push the branch (`git push origin release/<version>`)
 1. Create a pull request to the `main` branch
