@@ -334,6 +334,7 @@ export class ActivityContext<T extends Activity = Activity, TExtraCtx extends {}
       stream: this.stream,
       isSignedIn: this.isSignedIn,
       connectionName: this.connectionName,
+      userToken: this.userToken,
       next: this.next.bind(this),
       reply: this.reply.bind(this),
       send: this.send.bind(this),
